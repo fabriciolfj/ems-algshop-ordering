@@ -138,6 +138,7 @@ public class Order {
         }
 
         this.setShipping(newShipping);
+        this.recalculateTotals();
     }
 
     public void changeItemQuantity(OrderItemId orderItemId, Quantity quantity) {
