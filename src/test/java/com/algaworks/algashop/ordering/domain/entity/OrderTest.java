@@ -1,11 +1,15 @@
 package com.algaworks.algashop.ordering.domain.entity;
 
-import com.algaworks.algashop.ordering.domain.exception.OrderInvalidShippingDeliveryDateException;
-import com.algaworks.algashop.ordering.domain.exception.OrderStatusCannotBeChangedException;
-import com.algaworks.algashop.ordering.domain.exception.ProductOutOfStockException;
-import com.algaworks.algashop.ordering.domain.valueobject.*;
-import com.algaworks.algashop.ordering.domain.valueobject.id.CustomerId;
-import com.algaworks.algashop.ordering.domain.valueobject.id.ProductId;
+import com.algaworks.algashop.ordering.domain.model.entity.Order;
+import com.algaworks.algashop.ordering.domain.model.entity.OrderItem;
+import com.algaworks.algashop.ordering.domain.model.entity.OrderStatus;
+import com.algaworks.algashop.ordering.domain.model.entity.PaymentMethod;
+import com.algaworks.algashop.ordering.domain.model.exception.OrderInvalidShippingDeliveryDateException;
+import com.algaworks.algashop.ordering.domain.model.exception.OrderStatusCannotBeChangedException;
+import com.algaworks.algashop.ordering.domain.model.exception.ProductOutOfStockException;
+import com.algaworks.algashop.ordering.domain.model.valueobject.*;
+import com.algaworks.algashop.ordering.domain.model.valueobject.id.CustomerId;
+import com.algaworks.algashop.ordering.domain.model.valueobject.id.ProductId;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.Test;

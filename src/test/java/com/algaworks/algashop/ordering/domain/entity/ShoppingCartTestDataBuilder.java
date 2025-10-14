@@ -1,8 +1,9 @@
 package com.algaworks.algashop.ordering.domain.entity;
 
-import com.algaworks.algashop.ordering.domain.valueobject.Quantity;
-import com.algaworks.algashop.ordering.domain.valueobject.id.CustomerId;
-import com.algaworks.algashop.ordering.domain.valueobject.id.ShoppingCartId;
+import com.algaworks.algashop.ordering.domain.model.entity.ShoppingCart;
+import com.algaworks.algashop.ordering.domain.model.valueobject.Quantity;
+import com.algaworks.algashop.ordering.domain.model.valueobject.id.CustomerId;
+import com.algaworks.algashop.ordering.domain.model.valueobject.id.ShoppingCartId;
 
 public class ShoppingCartTestDataBuilder {
 

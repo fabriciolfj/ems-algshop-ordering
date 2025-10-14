@@ -1,10 +1,14 @@
 package com.algaworks.algashop.ordering.domain.entity;
 
-import com.algaworks.algashop.ordering.domain.exception.OrderCannotBeEditedException;
-import com.algaworks.algashop.ordering.domain.valueobject.Billing;
-import com.algaworks.algashop.ordering.domain.valueobject.Product;
-import com.algaworks.algashop.ordering.domain.valueobject.Quantity;
-import com.algaworks.algashop.ordering.domain.valueobject.Shipping;
+import com.algaworks.algashop.ordering.domain.model.entity.Order;
+import com.algaworks.algashop.ordering.domain.model.entity.OrderItem;
+import com.algaworks.algashop.ordering.domain.model.entity.OrderStatus;
+import com.algaworks.algashop.ordering.domain.model.entity.PaymentMethod;
+import com.algaworks.algashop.ordering.domain.model.exception.OrderCannotBeEditedException;
+import com.algaworks.algashop.ordering.domain.model.valueobject.Billing;
+import com.algaworks.algashop.ordering.domain.model.valueobject.Product;
+import com.algaworks.algashop.ordering.domain.model.valueobject.Quantity;
+import com.algaworks.algashop.ordering.domain.model.valueobject.Shipping;
 
 import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
