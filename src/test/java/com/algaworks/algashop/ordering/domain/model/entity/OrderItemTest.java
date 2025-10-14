@@ -1,6 +1,5 @@
-package com.algaworks.algashop.ordering.domain.entity;
+package com.algaworks.algashop.ordering.domain.model.entity;
 
-import com.algaworks.algashop.ordering.domain.model.entity.OrderItem;
 import com.algaworks.algashop.ordering.domain.model.valueobject.Product;
 import com.algaworks.algashop.ordering.domain.model.valueobject.Quantity;
 import com.algaworks.algashop.ordering.domain.model.valueobject.id.OrderId;

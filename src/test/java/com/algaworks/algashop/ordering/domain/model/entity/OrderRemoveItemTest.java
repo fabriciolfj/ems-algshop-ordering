@@ -1,8 +1,5 @@
-package com.algaworks.algashop.ordering.domain.entity;
+package com.algaworks.algashop.ordering.domain.model.entity;
 
-import com.algaworks.algashop.ordering.domain.model.entity.Order;
-import com.algaworks.algashop.ordering.domain.model.entity.OrderItem;
-import com.algaworks.algashop.ordering.domain.model.entity.OrderStatus;
 import com.algaworks.algashop.ordering.domain.model.exception.OrderCannotBeEditedException;
 import com.algaworks.algashop.ordering.domain.model.exception.OrderDoesNotContainOrderItemException;
 import com.algaworks.algashop.ordering.domain.model.valueobject.Money;

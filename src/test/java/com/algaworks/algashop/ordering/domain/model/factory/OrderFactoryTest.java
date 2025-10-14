@@ -1,10 +1,9 @@
-package com.algaworks.algashop.ordering.domain.factory;
+package com.algaworks.algashop.ordering.domain.model.factory;
 
 import com.algaworks.algashop.ordering.domain.model.entity.Order;
-import com.algaworks.algashop.ordering.domain.entity.OrderTestDataBuilder;
+import com.algaworks.algashop.ordering.domain.model.entity.OrderTestDataBuilder;
 import com.algaworks.algashop.ordering.domain.model.entity.PaymentMethod;
-import com.algaworks.algashop.ordering.domain.entity.ProductTestDataBuilder;
-import com.algaworks.algashop.ordering.domain.model.factory.OrderFactory;
+import com.algaworks.algashop.ordering.domain.model.entity.ProductTestDataBuilder;
 import com.algaworks.algashop.ordering.domain.model.valueobject.Billing;
 import com.algaworks.algashop.ordering.domain.model.valueobject.Product;
 import com.algaworks.algashop.ordering.domain.model.valueobject.Quantity;

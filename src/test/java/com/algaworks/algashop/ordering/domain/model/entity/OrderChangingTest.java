@@ -1,17 +1,14 @@
-package com.algaworks.algashop.ordering.domain.entity;
+package com.algaworks.algashop.ordering.domain.model.entity;
 
-import com.algaworks.algashop.ordering.domain.model.entity.Order;
-import com.algaworks.algashop.ordering.domain.model.entity.OrderItem;
-import com.algaworks.algashop.ordering.domain.model.entity.OrderStatus;
-import com.algaworks.algashop.ordering.domain.model.entity.PaymentMethod;
 import com.algaworks.algashop.ordering.domain.model.exception.OrderCannotBeEditedException;
 import com.algaworks.algashop.ordering.domain.model.valueobject.Billing;
 import com.algaworks.algashop.ordering.domain.model.valueobject.Product;
 import com.algaworks.algashop.ordering.domain.model.valueobject.Quantity;
 import com.algaworks.algashop.ordering.domain.model.valueobject.Shipping;
-
-import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class OrderChangingTest {
 

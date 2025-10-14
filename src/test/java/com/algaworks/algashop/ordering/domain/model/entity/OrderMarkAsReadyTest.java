@@ -1,7 +1,5 @@
-package com.algaworks.algashop.ordering.domain.entity;
+package com.algaworks.algashop.ordering.domain.model.entity;
 
-import com.algaworks.algashop.ordering.domain.model.entity.Order;
-import com.algaworks.algashop.ordering.domain.model.entity.OrderStatus;
 import com.algaworks.algashop.ordering.domain.model.exception.OrderStatusCannotBeChangedException;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
