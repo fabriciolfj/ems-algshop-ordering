@@ -9,7 +9,7 @@ import java.time.OffsetDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
-import static com.algaworks.algashop.ordering.domain.model.exception.ErrorMessages.*;
+import static com.algaworks.algashop.ordering.domain.model.exception.ErrorMessages.VALIDATION_ERROR_FULLNAME_IS_NULL;
 
 public class Customer implements AggregateRoot<CustomerId> {
     private CustomerId id;
@@ -67,9 +67,6 @@ public class Customer implements AggregateRoot<CustomerId> {
     
     public void addLoyaltyPoints(LoyaltyPoints loyaltyPointsAdded) {
         verifyIfChangeable();
-        if (loyaltyPointsAdded.equals(LoyaltyPoints.ZERO)) {
-            return;
-        }
         this.setLoyaltyPoints(this.loyaltyPoints().add(loyaltyPointsAdded));
     }
     

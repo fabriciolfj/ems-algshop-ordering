@@ -4,8 +4,6 @@ import com.algaworks.algashop.ordering.domain.model.exception.ErrorMessages;
 
 import java.time.Duration;
 import java.time.LocalDate;
-import java.time.Period;
-import java.time.Year;
 import java.util.Objects;
 
 public record BirthDate(LocalDate value) {
@@ -18,12 +16,11 @@ public record BirthDate(LocalDate value) {
 	}
 	
 	public Integer age() {
-		return Period.between(this.value, LocalDate.now()).getYears();
+		return (int) Duration.between(value, LocalDate.now()).toDays();
 	}
 
 	@Override
 	public String toString() {
 		return value.toString();
 	}
-
 }
