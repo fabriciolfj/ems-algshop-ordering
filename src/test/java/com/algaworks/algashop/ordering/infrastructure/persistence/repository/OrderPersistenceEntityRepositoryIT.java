@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Import;
 import java.util.UUID;
 
 @DataJpaTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) //nao subir um h2 novo, substituindo o existente no application test
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Import(SpringDataAuditingConfig.class)
 class OrderPersistenceEntityRepositoryIT {
 

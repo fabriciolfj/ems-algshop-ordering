@@ -1,5 +1,7 @@
 package com.algaworks.algashop.ordering.domain.model.exception;
 
+import java.util.Locale;
+
 public class ErrorMessages {
     public static final String VALIDATION_ERROR_EMAIL_IS_INVALID = "Email is invalid";
     public static final String VALIDATION_ERROR_BIRTHDATE_MUST_IN_PAST = "BirthDate must be a past date";
