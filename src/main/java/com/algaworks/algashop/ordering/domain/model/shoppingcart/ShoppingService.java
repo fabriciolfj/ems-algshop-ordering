@@ -1,10 +1,10 @@
 package com.algaworks.algashop.ordering.domain.model.shoppingcart;
 
-import com.algaworks.algashop.ordering.domain.model.DomainService;
 import com.algaworks.algashop.ordering.domain.model.customer.CustomerAlreadyHaveShoppingCartException;
-import com.algaworks.algashop.ordering.domain.model.customer.CustomerId;
 import com.algaworks.algashop.ordering.domain.model.customer.CustomerNotFoundException;
 import com.algaworks.algashop.ordering.domain.model.customer.Customers;
+import com.algaworks.algashop.ordering.domain.model.DomainService;
+import com.algaworks.algashop.ordering.domain.model.customer.CustomerId;
 import lombok.RequiredArgsConstructor;
 
 @DomainService

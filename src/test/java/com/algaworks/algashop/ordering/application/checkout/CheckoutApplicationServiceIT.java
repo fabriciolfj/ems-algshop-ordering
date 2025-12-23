@@ -8,8 +8,10 @@ import com.algaworks.algashop.ordering.domain.model.order.*;
 import com.algaworks.algashop.ordering.domain.model.order.shipping.OriginAddressService;
 import com.algaworks.algashop.ordering.domain.model.order.shipping.ShippingCostService;
 import com.algaworks.algashop.ordering.domain.model.product.Product;
+import com.algaworks.algashop.ordering.domain.model.product.ProductCatalogService;
 import com.algaworks.algashop.ordering.domain.model.product.ProductTestDataBuilder;
 import com.algaworks.algashop.ordering.domain.model.shoppingcart.*;
+import com.algaworks.algashop.ordering.infrastructure.listener.order.OrderEventListener;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,6 +19,7 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
@@ -48,6 +51,9 @@ class CheckoutApplicationServiceIT {
 
     @MockitoBean
     private ShippingCostService shippingCostService;
+
+    @MockitoSpyBean
+    private OrderEventListener orderEventListener;
 
     @BeforeEach
     public void setup() {
@@ -88,6 +94,8 @@ class CheckoutApplicationServiceIT {
         Optional<ShoppingCart> updatedCart = shoppingCarts.ofId(shoppingCart.id());
         Assertions.assertThat(updatedCart).isPresent();
         Assertions.assertThat(updatedCart.get().isEmpty()).isTrue();
+
+        Mockito.verify(orderEventListener).listen(Mockito.any(OrderPlacedEvent.class));
     }
 
     @Test

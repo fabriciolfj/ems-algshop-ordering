@@ -1,7 +1,7 @@
 package com.algaworks.algashop.ordering.infrastructure.persistence.customer;
 
-import com.algaworks.algashop.ordering.domain.model.commons.Address;
 import com.algaworks.algashop.ordering.domain.model.customer.Customer;
+import com.algaworks.algashop.ordering.domain.model.commons.Address;
 import com.algaworks.algashop.ordering.infrastructure.persistence.commons.AddressEmbeddable;
 import org.springframework.stereotype.Component;
 
@@ -27,6 +27,7 @@ public class CustomerPersistenceEntityAssembler {
 		customerPersistenceEntity.setLoyaltyPoints(customer.loyaltyPoints().value());
 		customerPersistenceEntity.setAddress(toAddressEmbeddable(customer.address()));
 		customerPersistenceEntity.setVersion(customer.version());
+		customerPersistenceEntity.addEvents(customer.domainEvents());
 		return customerPersistenceEntity;
 	}
 

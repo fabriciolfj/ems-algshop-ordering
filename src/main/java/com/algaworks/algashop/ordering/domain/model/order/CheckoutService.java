@@ -1,10 +1,10 @@
 package com.algaworks.algashop.ordering.domain.model.order;
 
+import com.algaworks.algashop.ordering.domain.model.shoppingcart.ShoppingCart;
+import com.algaworks.algashop.ordering.domain.model.shoppingcart.ShoppingCartItem;
+import com.algaworks.algashop.ordering.domain.model.shoppingcart.ShoppingCartCantProceedToCheckoutException;
 import com.algaworks.algashop.ordering.domain.model.DomainService;
 import com.algaworks.algashop.ordering.domain.model.product.Product;
-import com.algaworks.algashop.ordering.domain.model.shoppingcart.ShoppingCart;
-import com.algaworks.algashop.ordering.domain.model.shoppingcart.ShoppingCartCantProceedToCheckoutException;
-import com.algaworks.algashop.ordering.domain.model.shoppingcart.ShoppingCartItem;
 
 import java.util.Set;
 

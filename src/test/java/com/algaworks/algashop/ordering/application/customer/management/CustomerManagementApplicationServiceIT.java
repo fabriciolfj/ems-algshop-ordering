@@ -1,11 +1,17 @@
 package com.algaworks.algashop.ordering.application.customer.management;
 
+import com.algaworks.algashop.ordering.application.customer.notification.CustomerNotificationApplicationService;
+import com.algaworks.algashop.ordering.domain.model.customer.CustomerArchivedEvent;
 import com.algaworks.algashop.ordering.domain.model.customer.CustomerArchivedException;
 import com.algaworks.algashop.ordering.domain.model.customer.CustomerNotFoundException;
+import com.algaworks.algashop.ordering.domain.model.customer.CustomerRegisteredEvent;
+import com.algaworks.algashop.ordering.infrastructure.listener.customer.CustomerEventListener;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
@@ -17,6 +23,12 @@ class CustomerManagementApplicationServiceIT {
 
     @Autowired
     private CustomerManagementApplicationService customerManagementApplicationService;
+
+    @MockitoSpyBean
+    private CustomerEventListener customerEventListener;
+
+    @MockitoSpyBean
+    private CustomerNotificationApplicationService customerNotificationApplicationService;
 
     @Test
     public void shouldRegister() {
@@ -43,6 +55,15 @@ class CustomerManagementApplicationServiceIT {
             );
 
         Assertions.assertThat(customerOutput.getRegisteredAt()).isNotNull();
+
+        Mockito.verify(customerEventListener)
+                .listen(Mockito.any(CustomerRegisteredEvent.class));
+
+        Mockito.verify(customerEventListener, Mockito.never())
+                .listen(Mockito.any(CustomerArchivedEvent.class));
+
+        Mockito.verify(customerNotificationApplicationService)
+                .notifyNewRegistration(Mockito.any(CustomerNotificationApplicationService.NotifyNewRegistrationInput.class));
     }
 
     @Test
