@@ -1,10 +1,10 @@
 package com.algaworks.algashop.ordering.application.checkout;
 
 import com.algaworks.algashop.ordering.application.commons.AddressData;
-import com.algaworks.algashop.ordering.domain.model.customer.CustomerTestDataBuilder; // Usado para referência de IDs padrão, se necessário
-import java.util.UUID;
+import com.algaworks.algashop.ordering.application.order.query.BillingData;
+import com.algaworks.algashop.ordering.application.order.query.RecipientData;
 
-import static com.algaworks.algashop.ordering.domain.model.shoppingcart.ShoppingCartTestDataBuilder.DEFAULT_SHOPPING_CART_ID;
+import java.util.UUID;
 
 public class CheckoutInputTestDataBuilder {
 
