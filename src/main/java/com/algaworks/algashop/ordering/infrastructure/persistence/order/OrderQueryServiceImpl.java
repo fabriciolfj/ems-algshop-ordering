@@ -33,7 +33,7 @@ public class OrderQueryServiceImpl implements OrderQueryService {
     @Override
     public OrderDetailOutput findById(String id) {
         OrderPersistenceEntity entity = repository.findById(new OrderId(id).value().toLong())
-                .orElseThrow(() -> new OrderNotFoundException());
+                .orElseThrow(OrderNotFoundException::new);
         return mapper.convert(entity, OrderDetailOutput.class);
     }
 
