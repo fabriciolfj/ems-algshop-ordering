@@ -138,7 +138,6 @@ public class Order {
         }
 
         this.setShipping(newShipping);
-        this.recalculateTotals();
     }
 
     public void changeItemQuantity(OrderItemId orderItemId, Quantity quantity) {
@@ -248,10 +247,10 @@ public class Order {
                 .reduce(0, Integer::sum);
 
         BigDecimal shippingCost;
-        if(this.shipping() == null) {
+        if(this.shippingCost() == null) {
             shippingCost = BigDecimal.ZERO;
         } else {
-            shippingCost = this.shipping().cost().value();
+            shippingCost = this.shippingCost.value();
         }
 
         BigDecimal totalAmount = totalItemsAmount.add(shippingCost);
