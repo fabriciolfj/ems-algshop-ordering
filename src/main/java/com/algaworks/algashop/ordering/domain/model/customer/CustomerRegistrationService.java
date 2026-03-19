@@ -1,7 +1,7 @@
 package com.algaworks.algashop.ordering.domain.model.customer;
 
-import com.algaworks.algashop.ordering.domain.model.commons.*;
 import com.algaworks.algashop.ordering.domain.model.DomainService;
+import com.algaworks.algashop.ordering.domain.model.commons.*;
 import lombok.RequiredArgsConstructor;
 
 @DomainService

@@ -1,9 +1,9 @@
 package com.algaworks.algashop.ordering.domain.model.customer;
 
-import com.algaworks.algashop.ordering.domain.model.order.Order;
-import com.algaworks.algashop.ordering.domain.model.order.OrderNotBelongsToCustomerException;
 import com.algaworks.algashop.ordering.domain.model.DomainService;
 import com.algaworks.algashop.ordering.domain.model.commons.Money;
+import com.algaworks.algashop.ordering.domain.model.order.Order;
+import com.algaworks.algashop.ordering.domain.model.order.OrderNotBelongsToCustomerException;
 
 import java.util.Objects;
 

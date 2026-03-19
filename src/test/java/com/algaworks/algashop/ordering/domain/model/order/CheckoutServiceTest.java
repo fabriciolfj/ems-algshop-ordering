@@ -1,15 +1,15 @@
 package com.algaworks.algashop.ordering.domain.model.order;
 
+import com.algaworks.algashop.ordering.domain.model.commons.Money;
+import com.algaworks.algashop.ordering.domain.model.commons.Quantity;
 import com.algaworks.algashop.ordering.domain.model.customer.Customer;
 import com.algaworks.algashop.ordering.domain.model.customer.CustomerTestDataBuilder;
 import com.algaworks.algashop.ordering.domain.model.customer.LoyaltyPoints;
+import com.algaworks.algashop.ordering.domain.model.product.Product;
 import com.algaworks.algashop.ordering.domain.model.product.ProductTestDataBuilder;
 import com.algaworks.algashop.ordering.domain.model.shoppingcart.ShoppingCart;
-import com.algaworks.algashop.ordering.domain.model.shoppingcart.ShoppingCartTestDataBuilder;
 import com.algaworks.algashop.ordering.domain.model.shoppingcart.ShoppingCartCantProceedToCheckoutException;
-import com.algaworks.algashop.ordering.domain.model.commons.Money;
-import com.algaworks.algashop.ordering.domain.model.product.Product;
-import com.algaworks.algashop.ordering.domain.model.commons.Quantity;
+import com.algaworks.algashop.ordering.domain.model.shoppingcart.ShoppingCartTestDataBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -47,7 +47,7 @@ class CheckoutServiceTest {
         shoppingCart.addItem(ProductTestDataBuilder.aProductAltRamMemory().build(), new Quantity(1));
 
 
-        Billing billingInfo = OrderTestDataBuilder.aBilling();
+        Billing billingInfo = com.algaworks.algashop.ordering.domain.model.order.OrderTestDataBuilder.aBilling();
         Shipping shippingInfo = OrderTestDataBuilder.aShipping();
         PaymentMethod paymentMethod = PaymentMethod.CREDIT_CARD;
 

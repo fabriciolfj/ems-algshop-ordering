@@ -8,7 +8,6 @@ import com.algaworks.algashop.ordering.domain.model.order.*;
 import com.algaworks.algashop.ordering.domain.model.order.shipping.OriginAddressService;
 import com.algaworks.algashop.ordering.domain.model.order.shipping.ShippingCostService;
 import com.algaworks.algashop.ordering.domain.model.product.Product;
-import com.algaworks.algashop.ordering.domain.model.product.ProductCatalogService;
 import com.algaworks.algashop.ordering.domain.model.product.ProductTestDataBuilder;
 import com.algaworks.algashop.ordering.domain.model.shoppingcart.*;
 import com.algaworks.algashop.ordering.infrastructure.listener.order.OrderEventListener;

@@ -1,5 +1,7 @@
 package com.algaworks.algashop.ordering.domain.model;
 
+import com.algaworks.algashop.ordering.domain.model.AggregateRoot;
+
 import java.util.Optional;
 
 public interface Repository<T extends AggregateRoot<ID>, ID> {

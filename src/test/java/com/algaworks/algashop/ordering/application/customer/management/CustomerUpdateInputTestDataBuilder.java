@@ -1,7 +1,6 @@
 package com.algaworks.algashop.ordering.application.customer.management;
 
 import com.algaworks.algashop.ordering.application.commons.AddressData;
-import com.algaworks.algashop.ordering.application.customer.management.CustomerUpdateInput;
 
 public class CustomerUpdateInputTestDataBuilder {
 

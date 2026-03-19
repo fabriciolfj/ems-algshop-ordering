@@ -35,6 +35,8 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'io.rest-assured:rest-assured'
+	testImplementation 'io.rest-assured:spring-mock-mvc'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.assertj:assertj-core:3.27.3'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

@@ -1,7 +1,7 @@
 package com.algaworks.algashop.ordering.infrastructure.persistence.entity;
 
-import com.algaworks.algashop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntity;
 import com.algaworks.algashop.ordering.infrastructure.persistence.commons.AddressEmbeddable;
+import com.algaworks.algashop.ordering.infrastructure.persistence.customer.CustomerPersistenceEntity;
 
 import java.time.LocalDate;
 import java.time.OffsetDateTime;

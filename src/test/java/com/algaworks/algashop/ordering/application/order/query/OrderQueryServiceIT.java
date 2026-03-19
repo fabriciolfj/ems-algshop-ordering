@@ -1,6 +1,5 @@
 package com.algaworks.algashop.ordering.application.order.query;
 
-import com.algaworks.algashop.ordering.application.utility.PageFilter;
 import com.algaworks.algashop.ordering.domain.model.customer.Customer;
 import com.algaworks.algashop.ordering.domain.model.customer.CustomerId;
 import com.algaworks.algashop.ordering.domain.model.customer.CustomerTestDataBuilder;

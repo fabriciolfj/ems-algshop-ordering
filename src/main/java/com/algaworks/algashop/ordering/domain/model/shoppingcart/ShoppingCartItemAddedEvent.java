@@ -2,6 +2,7 @@ package com.algaworks.algashop.ordering.domain.model.shoppingcart;
 
 import com.algaworks.algashop.ordering.domain.model.customer.CustomerId;
 import com.algaworks.algashop.ordering.domain.model.product.ProductId;
+import com.algaworks.algashop.ordering.domain.model.shoppingcart.ShoppingCartId;
 
 import java.time.OffsetDateTime;
 

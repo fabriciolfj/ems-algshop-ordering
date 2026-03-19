@@ -1,5 +1,7 @@
 package com.algaworks.algashop.ordering.domain.model;
 
+import com.algaworks.algashop.ordering.domain.model.DomainEventSource;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

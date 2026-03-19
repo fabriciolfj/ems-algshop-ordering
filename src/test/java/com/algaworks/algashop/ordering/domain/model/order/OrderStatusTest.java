@@ -1,5 +1,6 @@
 package com.algaworks.algashop.ordering.domain.model.order;
 
+import com.algaworks.algashop.ordering.domain.model.order.OrderStatus;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
