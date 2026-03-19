@@ -180,7 +180,6 @@ class CustomerControllerContractTest {
                         "size", Matchers.equalTo(2),
                         "totalPages", Matchers.equalTo(1),
                         "totalElements", Matchers.equalTo(2),
-
                         "content[0].id", Matchers.equalTo(customer1.getId().toString()),
                         "content[0].firstName", Matchers.is(customer1.getFirstName()),
                         "content[0].lastName", Matchers.is(customer1.getLastName()),
