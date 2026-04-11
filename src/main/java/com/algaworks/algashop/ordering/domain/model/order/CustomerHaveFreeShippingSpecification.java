@@ -3,6 +3,7 @@ package com.algaworks.algashop.ordering.domain.model.order;
 import com.algaworks.algashop.ordering.domain.model.Specification;
 import com.algaworks.algashop.ordering.domain.model.customer.Customer;
 import com.algaworks.algashop.ordering.domain.model.customer.LoyaltyPoints;
+import lombok.RequiredArgsConstructor;
 
 public class CustomerHaveFreeShippingSpecification implements Specification<Customer> {
 

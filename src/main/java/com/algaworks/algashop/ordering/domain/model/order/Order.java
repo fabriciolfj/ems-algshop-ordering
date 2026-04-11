@@ -4,8 +4,8 @@ import com.algaworks.algashop.ordering.domain.model.AbstractEventSourceEntity;
 import com.algaworks.algashop.ordering.domain.model.AggregateRoot;
 import com.algaworks.algashop.ordering.domain.model.commons.Money;
 import com.algaworks.algashop.ordering.domain.model.commons.Quantity;
-import com.algaworks.algashop.ordering.domain.model.customer.CustomerId;
 import com.algaworks.algashop.ordering.domain.model.product.Product;
+import com.algaworks.algashop.ordering.domain.model.customer.CustomerId;
 import lombok.Builder;
 
 import java.math.BigDecimal;
@@ -87,6 +87,10 @@ public class Order
     public void addItem(Product product, Quantity quantity) {
         Objects.requireNonNull(product);
         Objects.requireNonNull(quantity);
+
+        if (quantity.equals(Quantity.ZERO)) {
+            throw new IllegalArgumentException();
+        }
 
         this.verifyIfChangeable();
 
@@ -274,7 +278,7 @@ public class Order
     private void changeStatus(OrderStatus newStatus) {
         Objects.requireNonNull(newStatus);
         if (this.status().canNotChangeTo(newStatus)) {
-            throw new com.algaworks.algashop.ordering.domain.model.order.OrderStatusCannotBeChangedException(this.id(), this.status(), newStatus);
+            throw new OrderStatusCannotBeChangedException(this.id(), this.status(), newStatus);
         }
         this.setStatus(newStatus);
     }

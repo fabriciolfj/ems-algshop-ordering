@@ -1,12 +1,8 @@
 package com.algaworks.algashop.ordering.domain.model.order;
 
+import com.algaworks.algashop.ordering.domain.model.product.Product;
 import com.algaworks.algashop.ordering.domain.model.commons.Quantity;
 import com.algaworks.algashop.ordering.domain.model.customer.CustomerId;
-import com.algaworks.algashop.ordering.domain.model.order.Billing;
-import com.algaworks.algashop.ordering.domain.model.order.Order;
-import com.algaworks.algashop.ordering.domain.model.order.PaymentMethod;
-import com.algaworks.algashop.ordering.domain.model.order.Shipping;
-import com.algaworks.algashop.ordering.domain.model.product.Product;
 
 import java.util.Objects;
 

@@ -247,7 +247,7 @@ public class Customer
 
     private void verifyIfChangeable() {
         if (this.isArchived()) {
-            throw new com.algaworks.algashop.ordering.domain.model.customer.CustomerArchivedException();
+            throw new CustomerArchivedException();
         }
     }
 

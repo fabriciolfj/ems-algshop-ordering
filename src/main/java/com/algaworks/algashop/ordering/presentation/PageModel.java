@@ -14,11 +14,11 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class PageModel<T> {
-
     private int number;
     private int size;
     private int totalPages;
     private long totalElements;
+
     @Builder.Default
     private List<T> content = new ArrayList<>();
 

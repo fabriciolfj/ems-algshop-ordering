@@ -20,6 +20,7 @@ public class CustomerOutputTestDataBuilder {
 				.document("12345")
 				.promotionNotificationsAllowed(false)
 				.loyaltyPoints(0)
+				.archived(false)
 				.address(AddressData.builder()
 						.street("Bourbon Street")
 						.number("2000")

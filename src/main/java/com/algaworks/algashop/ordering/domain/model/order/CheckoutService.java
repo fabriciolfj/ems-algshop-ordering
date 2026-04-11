@@ -1,12 +1,12 @@
 package com.algaworks.algashop.ordering.domain.model.order;
 
-import com.algaworks.algashop.ordering.domain.model.DomainService;
 import com.algaworks.algashop.ordering.domain.model.commons.Money;
 import com.algaworks.algashop.ordering.domain.model.customer.Customer;
-import com.algaworks.algashop.ordering.domain.model.product.Product;
 import com.algaworks.algashop.ordering.domain.model.shoppingcart.ShoppingCart;
-import com.algaworks.algashop.ordering.domain.model.shoppingcart.ShoppingCartCantProceedToCheckoutException;
 import com.algaworks.algashop.ordering.domain.model.shoppingcart.ShoppingCartItem;
+import com.algaworks.algashop.ordering.domain.model.shoppingcart.ShoppingCartCantProceedToCheckoutException;
+import com.algaworks.algashop.ordering.domain.model.DomainService;
+import com.algaworks.algashop.ordering.domain.model.product.Product;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Set;
@@ -18,10 +18,10 @@ public class CheckoutService {
 	private final CustomerHaveFreeShippingSpecification haveFreeShippingSpecification;
 
 	public Order checkout(Customer customer,
-                          ShoppingCart shoppingCart,
-                          Billing billing,
-                          Shipping shipping,
-                          PaymentMethod paymentMethod) {
+						  ShoppingCart shoppingCart,
+						  Billing billing,
+						  Shipping shipping,
+						  PaymentMethod paymentMethod) {
 
 		if (shoppingCart.isEmpty()) {
 			throw new ShoppingCartCantProceedToCheckoutException();
