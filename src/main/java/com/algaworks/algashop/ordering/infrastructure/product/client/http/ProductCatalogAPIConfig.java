@@ -15,8 +15,8 @@ public class ProductCatalogAPIConfig {
         @Value("${algashop.integrations.product-catalog.url}") String url) {
         RestClient restClient = builder.baseUrl(url).build();
         RestClientAdapter adapter = RestClientAdapter.create(restClient);
-        HttpServiceProxyFactory proxyFactory = HttpServiceProxyFactory.builderFor(adapter).build();
-        return proxyFactory.createClient(ProductCatalogAPIClient.class);
+        HttpServiceProxyFactory factory = HttpServiceProxyFactory.builderFor(adapter).build();
+        return factory.createClient(ProductCatalogAPIClient.class);
     }
 
 }
