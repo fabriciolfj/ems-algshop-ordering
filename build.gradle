@@ -101,3 +101,7 @@ tasks.register('integrationTest', Test) {
 		excludeTestsMatching "*Test"
 	}
 }
+
+tasks.named('check') {
+	dependsOn(test, contractTest, integrationTest)
+}
