@@ -21,7 +21,8 @@ public class CheckoutService {
 						  ShoppingCart shoppingCart,
 						  Billing billing,
 						  Shipping shipping,
-						  PaymentMethod paymentMethod) {
+						  PaymentMethod paymentMethod,
+						  CreditCardId creditCardId) {
 
 		if (shoppingCart.isEmpty()) {
 			throw new ShoppingCartCantProceedToCheckoutException();
@@ -43,7 +44,7 @@ public class CheckoutService {
 			order.changeShipping(shipping);
 		}
 
-		order.changePaymentMethod(paymentMethod);
+		order.changePaymentMethod(paymentMethod, creditCardId);
 
 		for (ShoppingCartItem item : items) {
 			order.addItem(new Product(item.productId(), item.name(),

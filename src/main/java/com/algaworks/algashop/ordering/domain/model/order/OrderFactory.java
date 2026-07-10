@@ -18,7 +18,8 @@ public class OrderFactory {
             Billing billing,
             PaymentMethod paymentMethod,
             Product product,
-            Quantity productQuantity
+            Quantity productQuantity,
+            CreditCardId creditCardId
     ) {
         Objects.requireNonNull(customerId);
         Objects.requireNonNull(shipping);
@@ -31,7 +32,7 @@ public class OrderFactory {
 
         order.changeBilling(billing);
         order.changeShipping(shipping);
-        order.changePaymentMethod(paymentMethod);
+        order.changePaymentMethod(paymentMethod, creditCardId);
         order.addItem(product, productQuantity);
 
         return order;

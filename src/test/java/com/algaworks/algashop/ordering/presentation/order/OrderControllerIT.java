@@ -123,6 +123,7 @@ public class OrderControllerIT {
         BuyNowInput input = BuyNowInputTestDataBuilder.aBuyNowInput()
                 .productId(validProductId)
                 .customerId(validCustomerId)
+                .creditCardId(UUID.randomUUID())
                 .build();
 
         OrderDetailOutput orderDetailOutput = RestAssured
@@ -142,6 +143,7 @@ public class OrderControllerIT {
                 .body().as(OrderDetailOutput.class);
 
         Assertions.assertThat(orderDetailOutput.getCustomer().getId()).isEqualTo(validCustomerId);
+        Assertions.assertThat(orderDetailOutput.getCreditCardId()).isEqualTo(input.getCreditCardId());
 
         boolean orderExists = orderRepository.existsById(new OrderId(orderDetailOutput.getId()).value().toLong());
         Assertions.assertThat(orderExists).isTrue();

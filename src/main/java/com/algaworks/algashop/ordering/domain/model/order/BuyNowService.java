@@ -22,13 +22,14 @@ public class BuyNowService {
 						Billing billing,
 						Shipping shipping,
 						Quantity quantity,
-						PaymentMethod paymentMethod) {
+						PaymentMethod paymentMethod,
+						CreditCardId creditCardId) {
 		
 		product.checkOutOfStock();
 
 		Order order = Order.draft(customer.id());
 		order.changeBilling(billing);
-		order.changePaymentMethod(paymentMethod);
+		order.changePaymentMethod(paymentMethod, creditCardId);
 		order.addItem(product, quantity);
 
 		if (haveFreeShipping(customer)) {

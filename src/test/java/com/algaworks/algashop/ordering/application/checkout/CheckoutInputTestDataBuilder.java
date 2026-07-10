@@ -12,6 +12,7 @@ public class CheckoutInputTestDataBuilder {
         return CheckoutInput.builder()
                 .shoppingCartId(UUID.randomUUID())
                 .paymentMethod("CREDIT_CARD")
+                .creditCardId(UUID.randomUUID())
                 .shipping(ShippingInput.builder()
                         .recipient(RecipientData.builder()
                                 .firstName("John")

@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.Set;
+import java.util.UUID;
 
 class OrderTest {
 
@@ -118,7 +119,8 @@ class OrderTest {
     @Test
     public void givenDraftOrder_whenChangePaymentMethod_shouldAllowChange() {
         Order order = Order.draft(new CustomerId());
-        order.changePaymentMethod(PaymentMethod.CREDIT_CARD);
+        CreditCardId creditCardId = new CreditCardId(UUID.randomUUID());
+        order.changePaymentMethod(PaymentMethod.CREDIT_CARD, creditCardId);
         Assertions.assertWith(order.paymentMethod()).isEqualTo(PaymentMethod.CREDIT_CARD);
     }
 

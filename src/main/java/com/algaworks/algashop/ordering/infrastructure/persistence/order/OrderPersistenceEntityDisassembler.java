@@ -18,6 +18,12 @@ import java.util.stream.Collectors;
 public class OrderPersistenceEntityDisassembler {
 
     public Order toDomainEntity(OrderPersistenceEntity persistenceEntity) {
+        CreditCardId creditCardId = null;
+
+        if(persistenceEntity.getCreditCardId() != null) {
+            creditCardId = new CreditCardId(persistenceEntity.getCreditCardId());
+        }
+
         return Order.existing()
                 .id(new OrderId(persistenceEntity.getId()))
                 .customerId(new CustomerId(persistenceEntity.getCustomerId()))
@@ -25,6 +31,7 @@ public class OrderPersistenceEntityDisassembler {
                 .totalItems(new Quantity(persistenceEntity.getTotalItems()))
                 .status(OrderStatus.valueOf(persistenceEntity.getStatus()))
                 .paymentMethod(PaymentMethod.valueOf(persistenceEntity.getPaymentMethod()))
+                .creditCardId(creditCardId)
                 .placedAt(persistenceEntity.getPlacedAt())
                 .paidAt(persistenceEntity.getPaidAt())
                 .canceledAt(persistenceEntity.getCanceledAt())
@@ -73,6 +80,7 @@ public class OrderPersistenceEntityDisassembler {
                 .document(new Document(billingEmbeddable.getDocument()))
                 .phone(new Phone(billingEmbeddable.getPhone()))
                 .address(toAddressValueObject(billingEmbeddable.getAddress()))
+                .email(new Email(billingEmbeddable.getEmail()))
                 .build();
     }
 

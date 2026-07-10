@@ -38,4 +38,6 @@ public class BuyNowInput {
 
     @NotBlank
     private String paymentMethod;
+
+    private UUID creditCardId;
 }
