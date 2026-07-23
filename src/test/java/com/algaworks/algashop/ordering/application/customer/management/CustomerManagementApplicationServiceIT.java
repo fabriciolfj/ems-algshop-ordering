@@ -9,12 +9,17 @@ import com.algaworks.algashop.ordering.domain.model.customer.CustomerNotFoundExc
 import com.algaworks.algashop.ordering.domain.model.customer.CustomerRegisteredEvent;
 import com.algaworks.algashop.ordering.infrastructure.listener.customer.CustomerEventListener;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.DynamicPropertyRegistry;
+import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
 import org.springframework.transaction.annotation.Transactional;
+import org.testcontainers.containers.PostgreSQLContainer;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -22,6 +27,28 @@ import java.util.UUID;
 @SpringBootTest
 @Transactional
 class CustomerManagementApplicationServiceIT {
+
+    private static PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer<>("postgres:16-alpine");
+
+    @BeforeAll
+    public static void beforeAll() {
+        postgreSQLContainer.start();
+    }
+
+    @AfterAll
+    public static void afterAll() {
+        postgreSQLContainer.stop();
+    }
+
+    @DynamicPropertySource
+    public static void configurePropertySource(DynamicPropertyRegistry registry) {
+        registry.add("spring.datasource.url", postgreSQLContainer::getJdbcUrl);
+        registry.add("spring.datasource.username", postgreSQLContainer::getUsername);
+        registry.add("spring.datasource.password", postgreSQLContainer::getPassword);
+        registry.add("spring.flyway.url", postgreSQLContainer::getJdbcUrl);
+        registry.add("spring.flyway.user", postgreSQLContainer::getUsername);
+        registry.add("spring.flyway.password", postgreSQLContainer::getPassword);
+    }
 
     @Autowired
     private CustomerManagementApplicationService customerManagementApplicationService;
