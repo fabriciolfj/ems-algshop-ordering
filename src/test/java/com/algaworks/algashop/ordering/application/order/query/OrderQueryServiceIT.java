@@ -1,6 +1,6 @@
 package com.algaworks.algashop.ordering.application.order.query;
 
-import com.algaworks.algashop.ordering.application.utility.PageFilter;
+import com.algaworks.algashop.ordering.application.AbstractApplicationIT;
 import com.algaworks.algashop.ordering.domain.model.customer.Customer;
 import com.algaworks.algashop.ordering.domain.model.customer.CustomerId;
 import com.algaworks.algashop.ordering.domain.model.customer.CustomerTestDataBuilder;
@@ -12,14 +12,10 @@ import com.algaworks.algashop.ordering.domain.model.order.Orders;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
-import org.springframework.transaction.annotation.Transactional;
 
-@SpringBootTest
-@Transactional
-class OrderQueryServiceIT {
+class OrderQueryServiceIT extends AbstractApplicationIT {
 
     @Autowired
     private OrderQueryService queryService;

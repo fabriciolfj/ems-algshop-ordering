@@ -1,5 +1,6 @@
 package com.algaworks.algashop.ordering.application.shoppingcart;
 
+import com.algaworks.algashop.ordering.application.AbstractApplicationIT;
 import com.algaworks.algashop.ordering.application.shoppingcart.management.ShoppingCartItemInput;
 import com.algaworks.algashop.ordering.application.shoppingcart.management.ShoppingCartManagementApplicationService;
 import com.algaworks.algashop.ordering.domain.model.commons.Quantity;
@@ -20,9 +21,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 import java.util.UUID;
 
-@SpringBootTest
-@Transactional
-class ShoppingCartManagementApplicationServiceIT {
+
+class ShoppingCartManagementApplicationServiceIT extends AbstractApplicationIT {
 
     @Autowired
     private ShoppingCartManagementApplicationService service;

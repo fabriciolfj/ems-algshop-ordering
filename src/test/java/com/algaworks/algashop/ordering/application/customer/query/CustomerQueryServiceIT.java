@@ -1,5 +1,6 @@
 package com.algaworks.algashop.ordering.application.customer.query;
 
+import com.algaworks.algashop.ordering.application.AbstractApplicationIT;
 import com.algaworks.algashop.ordering.domain.model.commons.Email;
 import com.algaworks.algashop.ordering.domain.model.commons.FullName;
 import com.algaworks.algashop.ordering.domain.model.customer.Customer;
@@ -16,11 +17,11 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.transaction.annotation.Transactional;
 
-@SpringBootTest
+//@SpringBootTest
 //@Sql(scripts = "classpath:db/clean/afterMigrate.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_CLASS)
 //@Sql(scripts = "classpath:db/clean/afterMigrate.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
-@Transactional
-class CustomerQueryServiceIT {
+//@Transactional
+class CustomerQueryServiceIT extends AbstractApplicationIT {
     @Autowired
     private CustomerQueryService queryService;
 
