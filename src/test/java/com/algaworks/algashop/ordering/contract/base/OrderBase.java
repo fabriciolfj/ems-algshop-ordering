@@ -1,11 +1,13 @@
 package com.algaworks.algashop.ordering.contract.base;
 
-import com.algaworks.algashop.ordering.application.checkout.BuyNowApplicationService;
-import com.algaworks.algashop.ordering.application.checkout.BuyNowInput;
-import com.algaworks.algashop.ordering.application.checkout.CheckoutApplicationService;
-import com.algaworks.algashop.ordering.application.checkout.CheckoutInput;
-import com.algaworks.algashop.ordering.application.order.query.*;
-import com.algaworks.algashop.ordering.domain.model.order.OrderNotFoundException;
+import com.algaworks.algashop.ordering.core.application.checkout.BuyNowApplicationService;
+import com.algaworks.algashop.ordering.core.application.checkout.BuyNowInput;
+import com.algaworks.algashop.ordering.core.application.checkout.CheckoutApplicationService;
+import com.algaworks.algashop.ordering.core.application.checkout.CheckoutInput;
+import com.algaworks.algashop.ordering.core.application.order.query.*;
+import com.algaworks.algashop.ordering.core.application.order.query.OrderFilter;
+import com.algaworks.algashop.ordering.core.application.order.query.OrderQueryService;
+import com.algaworks.algashop.ordering.core.domain.model.order.OrderNotFoundException;
 import com.algaworks.algashop.ordering.presentation.order.OrderController;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.junit.jupiter.api.BeforeEach;

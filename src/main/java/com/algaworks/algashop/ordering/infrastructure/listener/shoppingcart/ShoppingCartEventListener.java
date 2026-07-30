@@ -1,9 +1,9 @@
 package com.algaworks.algashop.ordering.infrastructure.listener.shoppingcart;
 
-import com.algaworks.algashop.ordering.domain.model.shoppingcart.ShoppingCartCreatedEvent;
-import com.algaworks.algashop.ordering.domain.model.shoppingcart.ShoppingCartEmptiedEvent;
-import com.algaworks.algashop.ordering.domain.model.shoppingcart.ShoppingCartItemAddedEvent;
-import com.algaworks.algashop.ordering.domain.model.shoppingcart.ShoppingCartItemRemovedEvent;
+import com.algaworks.algashop.ordering.core.domain.model.shoppingcart.ShoppingCartCreatedEvent;
+import com.algaworks.algashop.ordering.core.domain.model.shoppingcart.ShoppingCartEmptiedEvent;
+import com.algaworks.algashop.ordering.core.domain.model.shoppingcart.ShoppingCartItemAddedEvent;
+import com.algaworks.algashop.ordering.core.domain.model.shoppingcart.ShoppingCartItemRemovedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 

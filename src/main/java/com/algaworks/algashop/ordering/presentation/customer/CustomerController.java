@@ -1,14 +1,14 @@
 package com.algaworks.algashop.ordering.presentation.customer;
 
-import com.algaworks.algashop.ordering.application.customer.management.CustomerInput;
-import com.algaworks.algashop.ordering.application.customer.management.CustomerManagementApplicationService;
-import com.algaworks.algashop.ordering.application.customer.management.CustomerUpdateInput;
-import com.algaworks.algashop.ordering.application.customer.query.CustomerFilter;
-import com.algaworks.algashop.ordering.application.customer.query.CustomerOutput;
-import com.algaworks.algashop.ordering.application.customer.query.CustomerQueryService;
-import com.algaworks.algashop.ordering.application.customer.query.CustomerSummaryOutput;
-import com.algaworks.algashop.ordering.application.shoppingcart.query.ShoppingCartOutput;
-import com.algaworks.algashop.ordering.application.shoppingcart.query.ShoppingCartQueryService;
+import com.algaworks.algashop.ordering.core.application.customer.management.CustomerInput;
+import com.algaworks.algashop.ordering.core.application.customer.management.CustomerManagementApplicationService;
+import com.algaworks.algashop.ordering.core.application.customer.management.CustomerUpdateInput;
+import com.algaworks.algashop.ordering.core.application.customer.query.CustomerFilter;
+import com.algaworks.algashop.ordering.core.application.customer.query.CustomerOutput;
+import com.algaworks.algashop.ordering.core.application.customer.query.CustomerQueryService;
+import com.algaworks.algashop.ordering.core.application.customer.query.CustomerSummaryOutput;
+import com.algaworks.algashop.ordering.core.application.shoppingcart.query.ShoppingCartOutput;
+import com.algaworks.algashop.ordering.core.application.shoppingcart.query.ShoppingCartQueryService;
 import com.algaworks.algashop.ordering.presentation.PageModel;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
