@@ -5,17 +5,16 @@ import org.springframework.boot.testcontainers.service.connection.ServiceConnect
 import org.springframework.context.annotation.Bean;
 import org.testcontainers.containers.PostgreSQLContainer;
 
-
 @TestConfiguration
 public class TestcontainerPostgreSQLConfig {
 
     private static PostgreSQLContainer postgreSQLContainer =
             new PostgreSQLContainer("postgres:17-alpine");
 
-
     @Bean
     @ServiceConnection
     public PostgreSQLContainer postgreSQLContainer() {
         return postgreSQLContainer;
     }
+
 }
