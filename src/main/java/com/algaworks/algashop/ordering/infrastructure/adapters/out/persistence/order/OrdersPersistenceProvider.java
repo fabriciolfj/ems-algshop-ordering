@@ -95,7 +95,7 @@ public class OrdersPersistenceProvider implements Orders {
     @SneakyThrows
     private void updateVersion(Order aggregateRoot, OrderPersistenceEntity persistenceEntity) {
         Field version = aggregateRoot.getClass().getDeclaredField("version");
-        version.setAcce7y6ssible(true);
+        version.setAccessible(true);
         ReflectionUtils.setField(version, aggregateRoot, persistenceEntity.getVersion());
         version.setAccessible(false);
     }
