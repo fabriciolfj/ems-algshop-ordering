@@ -1,4 +1,12 @@
 spring:
+  cache:
+    type: redis
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: algashop
+      database: 1
   datasource:
     url: jdbc:postgresql://localhost:5432/ordering
     username: postgres
@@ -16,4 +24,4 @@ algashop:
   integrations:
     shipping.provider: RAPIDEX
     rapidex.url: http://localhost:8787
-    product-catalog.url: http://localhost:8787
+    product-catalog.url: http://localhost:8081
