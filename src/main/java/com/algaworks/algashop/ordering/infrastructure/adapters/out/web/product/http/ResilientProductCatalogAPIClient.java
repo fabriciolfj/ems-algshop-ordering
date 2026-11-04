@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jspecify.annotations.NonNull;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cloud.circuitbreaker.retry.FrameworkRetryConfig;
+import org.springframework.cloud.circuitbreaker.retry.FrameworkRetryConfigBuilder;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreaker;
 import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
 import org.springframework.cloud.client.circuitbreaker.NoFallbackAvailableException;
@@ -32,7 +34,8 @@ public class ResilientProductCatalogAPIClient {
     private final ProductCatalogAPIClient productCatalogAPIClient;
     private final CircuitBreaker productCatalogCB;
 
-    public ResilientProductCatalogAPIClient(ProductCatalogAPIClient productCatalogAPIClient, CircuitBreakerFactory circuitBreakerFactory) {
+    public ResilientProductCatalogAPIClient(ProductCatalogAPIClient productCatalogAPIClient,
+                                            CircuitBreakerFactory<FrameworkRetryConfig, FrameworkRetryConfigBuilder> circuitBreakerFactory) {
         this.productCatalogAPIClient = productCatalogAPIClient;
         this.productCatalogCB = circuitBreakerFactory.create("productCatalogCB");
     }
@@ -44,18 +47,22 @@ public class ResilientProductCatalogAPIClient {
         try {
             return productCatalogCB.run(() -> loadProduct(productId));
         } catch (NoFallbackAvailableException e) {
-            if (e.getCause() instanceof RetryException re) {
-                if (re.getCause() instanceof GatewayTimeoutException gte) {
-                    throw gte;
-                }
+            throw unwrapException(e);
+        }
+    }
 
-                if (re.getCause() instanceof BadGatewayException bde) {
-                    throw bde;
-                }
+    private RuntimeException unwrapException(NoFallbackAvailableException e) {
+        if (e.getCause() instanceof RetryException re) {
+            if (re.getCause() instanceof GatewayTimeoutException gte) {
+                throw gte;
             }
 
-            throw e;
+            if (re.getCause() instanceof BadGatewayException bde) {
+                throw bde;
+            }
         }
+
+        throw e;
     }
 
     private @NonNull Optional<ProductResponse> loadProduct(UUID productId) {
@@ -65,7 +72,7 @@ public class ResilientProductCatalogAPIClient {
             throw new GatewayTimeoutException("Product Catalog API Timeout", e);
         } catch (HttpClientErrorException e) {
             if (!(e instanceof HttpClientErrorException.NotFound)) {
-                log.warn("client http error when loading product {}", productId, e);
+                log.error("client http error when loading product {}", productId, e);
             }
 
             return Optional.empty();

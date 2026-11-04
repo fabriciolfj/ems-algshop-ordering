@@ -1,17 +1,11 @@
 package com.algaworks.algashop.ordering.infrastructure.adapters.out.web.shipping.rapidex;
 
-import com.algaworks.algashop.ordering.core.domain.model.order.shipping.ShippingCostService;
 import com.algaworks.algashop.ordering.core.domain.model.commons.Money;
-import com.algaworks.algashop.ordering.infrastructure.adapters.in.web.exceptionhandler.BadGatewayException;
-import com.algaworks.algashop.ordering.infrastructure.adapters.in.web.exceptionhandler.GatewayTimeoutException;
+import com.algaworks.algashop.ordering.core.domain.model.order.shipping.ShippingCostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.ResourceAccessException;
-import org.springframework.web.client.RestClientException;
 
-import java.net.SocketException;
-import java.net.SocketTimeoutException;
 import java.time.LocalDate;
 
 @Component
@@ -19,27 +13,16 @@ import java.time.LocalDate;
 @ConditionalOnProperty(name = "algashop.integrations.shipping.provider", havingValue = "RAPIDEX")
 public class ShippingCostServiceRapidexImpl implements ShippingCostService {
 
-    private final RapiDexAPIClient rapiDexAPIClient;
+    private final ResilientRapiDexAPIClient rapiDexAPIClient;
 
     @Override
     public CalculationResult calculate(CalculationRequest request) {
-        final DeliveryCostResponse response;
-        try {
-            response = rapiDexAPIClient.calculate(
-                    new DeliveryCostRequest(
-                            request.origin().value(),
-                            request.destination().value()
-                    )
-            );
-        } catch (ResourceAccessException e) {
-            throw new GatewayTimeoutException("Rapidex API Timeout", e);
-        } catch (RestClientException e) {
-            if (e.getCause() instanceof SocketTimeoutException) {
-                throw new GatewayTimeoutException("rapidex api timeout", e);
-            }
-
-            throw new BadGatewayException("rapidex api bad gateway", e);
-        }
+        DeliveryCostResponse response = rapiDexAPIClient.calculate(
+                new DeliveryCostRequest(
+                        request.origin().value(),
+                        request.destination().value()
+                )
+        );
 
         LocalDate expectedDeliveryDate = LocalDate.now().plusDays(response.getEstimatedDaysToDeliver());
 

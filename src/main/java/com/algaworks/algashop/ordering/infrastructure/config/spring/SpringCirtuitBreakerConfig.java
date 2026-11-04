@@ -3,7 +3,6 @@ package com.algaworks.algashop.ordering.infrastructure.config.spring;
 import com.algaworks.algashop.ordering.infrastructure.adapters.in.web.exceptionhandler.BadGatewayException;
 import com.algaworks.algashop.ordering.infrastructure.adapters.in.web.exceptionhandler.GatewayTimeoutException;
 import org.springframework.cloud.circuitbreaker.retry.FrameworkRetryCircuitBreakerFactory;
-import org.springframework.cloud.circuitbreaker.retry.FrameworkRetryConfigBuilder;
 import org.springframework.cloud.client.circuitbreaker.Customizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

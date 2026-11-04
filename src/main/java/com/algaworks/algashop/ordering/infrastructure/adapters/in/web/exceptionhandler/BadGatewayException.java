@@ -9,8 +9,8 @@ public class BadGatewayException extends RuntimeException {
     }
 
     public static class ClientErrorException extends BadGatewayException {
-        public ClientErrorException() {
-
+        public ClientErrorException(String invalidZipCodeProvided) {
+            super(invalidZipCodeProvided, null);
         }
 
         public ClientErrorException(String message, Throwable cause) {
