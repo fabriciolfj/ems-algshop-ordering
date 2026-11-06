@@ -7,11 +7,15 @@ import org.springframework.cloud.client.circuitbreaker.Customizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.retry.RetryPolicy;
+import org.springframework.web.client.ResourceAccessException;
 
 import java.time.Duration;
 
 @Configuration
 public class SpringCirtuitBreakerConfig {
+
+    public static final String PRODUCT_CATALOG_CB_ID = "productCatalogCB";
+    public static final String RAPIDEX_CB_ID =  "rapidexAPICB";
 
     @Bean
     public Customizer<FrameworkRetryCircuitBreakerFactory> defaultCustomizer() {
@@ -19,7 +23,7 @@ public class SpringCirtuitBreakerConfig {
                 .maxRetries(3)
                 .multiplier(2)
                 .delay(Duration.ofSeconds(3))
-                .includes(GatewayTimeoutException.class, BadGatewayException.ServerErrorException.class)
+                .includes(GatewayTimeoutException.class, BadGatewayException.ServerErrorException.class, BadGatewayException.class)
                 .build();
 
         return factory -> {
@@ -28,7 +32,7 @@ public class SpringCirtuitBreakerConfig {
                             .openTimeout(Duration.ofSeconds(10))
                             .resetTimeout(Duration.ofSeconds(25))
                             .retryPolicy(retryPolicy)
-                            .build(), "productCatalogCB"
+                            .build(), PRODUCT_CATALOG_CB_ID
             );
 
             factory.configure(
@@ -36,7 +40,7 @@ public class SpringCirtuitBreakerConfig {
                             .openTimeout(Duration.ofSeconds(10))
                             .resetTimeout(Duration.ofSeconds(25))
                             .retryPolicy(retryPolicy)
-                            .build(), "rapidexAPICB"
+                            .build(), RAPIDEX_CB_ID
             );
         };
     }
